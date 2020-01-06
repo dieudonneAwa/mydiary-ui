@@ -1,3 +1,4 @@
+// @ts-ignore
 import styled from 'styled-components';
 // @ts-ignore
 import image from './diary-pic.jpg';
