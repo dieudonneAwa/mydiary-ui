@@ -20,6 +20,27 @@ export const LandingComp = styled.div`
     justify-content: center;
     background-color: rgba(005, 005, 005, .7);
     
+    .auth-btn {
+      background: transparent;
+      font-size: 22px;
+      color: #fff;
+      padding: 10px;
+      border: 1px solid #FFD7D7;
+      border-radius: 10px;
+    }
+    .signUp-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .signUp-btn:hover {
+      background: #31393C;
+    }
+    .signIn-btn {
+      position: absolute;
+      top: 20px;
+      right: 125px;
+    }
     .logo {
       position: absolute;
       width: 206px;
@@ -31,9 +52,9 @@ export const LandingComp = styled.div`
       font-weight: normal;
       font-size: 40px;
       line-height: 54px;
-
       color: #FFD7D7;
     }
+
     .quote {
       width: 600px;
       height: 200px;
@@ -46,7 +67,7 @@ export const LandingComp = styled.div`
       text-align: center;
       color: #fff;
     }
-    button {
+    .start {
       position: absolute;
       top: 55vh;
       width: 240px;
@@ -60,7 +81,7 @@ export const LandingComp = styled.div`
       color: #fff;
     }
 
-    button:hover {
+    .start:hover {
       border: none;
       cursor: pointer;
     }
