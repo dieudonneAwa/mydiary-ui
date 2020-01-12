@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import image from './diary-pic.jpg';
 
 export const LandingComp = styled.div`
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -40,19 +40,6 @@ export const LandingComp = styled.div`
       position: absolute;
       top: 20px;
       right: 125px;
-    }
-    .logo {
-      position: absolute;
-      width: 206px;
-      height: 54px;
-      left: 30px;
-      top: 20px;
-      font-family: Lucida Calligraphy;
-      font-style: italic;
-      font-weight: normal;
-      font-size: 40px;
-      line-height: 54px;
-      color: #FFD7D7;
     }
 
     .quote {
