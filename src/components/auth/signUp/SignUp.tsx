@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
-import { StyledSignUp } from './SignUp.styles';
+import { StyledSignUp } from '../styles';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 import { connect } from 'react-redux';
