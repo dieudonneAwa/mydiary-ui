@@ -26,6 +26,10 @@ export const authReducer = (state: State = initialState, action: Action): State 
       const { user } = action.payload.data;
       return { ...state, user };
     }
+    case asyncActionNames(Types.SIGN_IN).failure: {
+      const { error } = action.payload.error;
+      return { ...state, authError: error };
+    }
     default:
       return state;
   }

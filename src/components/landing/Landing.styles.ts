@@ -24,7 +24,7 @@ export const LandingComp = styled.div`
       background: transparent;
       font-size: 22px;
       color: #fff;
-      padding: 10px;
+      padding: 7px;
       border: 1px solid #FFD7D7;
       border-radius: 10px;
     }
@@ -32,6 +32,7 @@ export const LandingComp = styled.div`
       position: absolute;
       top: 20px;
       right: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
     }
     .signUp-btn:hover {
       background: #31393C;

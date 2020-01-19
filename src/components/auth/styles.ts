@@ -1,24 +1,27 @@
 import styled from 'styled-components';
 
-export const StyledSignUp = styled.div`
-  background-color: #2F2F2F;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
-  margin: 0; padding: 0;
-  position: fixed;
-  bottom: 0; top: 0; left: 0; right: 0;
-  display: flex;
-  align-content: center;
-  justify-content: center;
+export const AuthLayout = styled.div`
+    background-color: #2F2F2F;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    margin: 0; padding: 0;
+    position: fixed;
+    bottom: 0; top: 0; left: 0; right: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    .errors {
+      color: red; font-size: .8rem;
+    }
+`;
 
-  .errors {
-    color: red; font-size: .8rem;
-  }
+export const StyledSignUp = styled.div`
   .form-wrapper {
     background: rgba(196, 196, 196, 0.2);
-    width: 40%; height: 500px;
-    margin-top: 100px;
+    width: 600px;
+    height: auto;
+    margin-top: 140px;
     border-radius: 10px;
     border: .45px solid #FFD7D7;
 
@@ -29,7 +32,8 @@ export const StyledSignUp = styled.div`
     p {
       width: 100%; color: #fff;
       font-size: .9rem;
-      margin-top: -17px;
+      margin-top: -15px;
+      padding-bottom: 25px;
       margin-left: 90px;
       a {
         font-weight: 600;

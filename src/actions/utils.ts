@@ -39,6 +39,7 @@ export const asyncRequest = (
   try {
     dispatch(asyncActions(actionName).loading(true));
     const res = await apiCall(url, method, body, token);
+    console.log(res.data);
     dispatch(asyncActions(actionName).success(res.data));
     return res;
   } catch (e) {

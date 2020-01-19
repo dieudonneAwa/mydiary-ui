@@ -5,7 +5,7 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 import { StyledSignUp, AuthLayout } from '../styles';
 import { connect } from 'react-redux';
-import { signUp } from '../../../actions/auth';
+import { signIn } from '../../../actions/auth';
 import { User } from '../../../actions/interfaces';
 
 interface StateProps {
@@ -13,14 +13,14 @@ interface StateProps {
   authError: string;
 }
 interface DispatchProps {
-  signUp: (user: User) => Function;
+  signIn: (user: User) => Function;
 }
 interface FormProps {
   handleSubmit: (onSubmit: (formValues: User) => void) => React.FormEventHandler;
 }
 type IProps = StateProps & DispatchProps & FormProps;
 
-export class SignUp extends React.Component<InjectedFormProps<User, IProps> & IProps> {
+export class SignIn extends React.Component<InjectedFormProps<User, IProps> & IProps> {
   renderError = ({ error, touched }: { error: User; touched: boolean }) => {
     if (touched && error) {
       return (
@@ -41,7 +41,7 @@ export class SignUp extends React.Component<InjectedFormProps<User, IProps> & IP
   }
 
   onSubmit = async (formValues: User): Promise<void> => {
-    await this.props.signUp(formValues)
+    await this.props.signIn(formValues)
       // @ts-ignore
       .then((res) => {
         if (res) {
@@ -62,16 +62,14 @@ export class SignUp extends React.Component<InjectedFormProps<User, IProps> & IP
             </Link>
           </BrowserRouter>
           <div className="form-wrapper">
-            <h3>Register</h3>
+            <h3>Sign In</h3>
             <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-              <Field type="text" name="name" component={this.renderInput} placeholder="Enter Full Name" />
               <Field type="email" name="email" component={this.renderInput} placeholder="Enter Email Address" />
               <Field type="password" name="password" component={this.renderInput} placeholder="Enter Password" />
-              <Field type="password" name="confPassword" placeholder="Confirm Password" component={this.renderInput} />
               {this.props.authError && <div className="errors">{this.props.authError}</div>}
-              <input type="submit" value="Sign Up" />
+              <input type="submit" value="Sign In" />
             </form>
-            <p>Have an account already? <Link to="/auth/sign_in">Sign In</Link></p>
+            <p>New on myDiary? <Link to="/auth/sign_up">Sign Up</Link></p>
           </div>
         </StyledSignUp>
       </AuthLayout>
@@ -82,9 +80,6 @@ export class SignUp extends React.Component<InjectedFormProps<User, IProps> & IP
 const validate = (formValues: User): User => {
   // @ts-ignore
   const errors: User = {};
-  if (!formValues.name) {
-    errors.name = 'You must provide a name';
-  }
   if (!formValues.email) {
     errors.email = 'You must provide an email address';
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formValues.email)) {
@@ -92,9 +87,6 @@ const validate = (formValues: User): User => {
   }
   if (!formValues.password) {
     errors.password = 'You must provide a password';
-  }
-  if (formValues.confPassword !== formValues.password) {
-    errors.confPassword = 'Passwords do not match';
   }
   return errors;
 }
@@ -106,6 +98,6 @@ const mapStateToProps = ({ auth: { user, authError } }: any): StateProps => ({
 const connectedSignUp = reduxForm<{}, IProps>({
   form: 'SignUp',
   validate,
-})(SignUp);
+})(SignIn);
 
-export default connect<StateProps, DispatchProps>(mapStateToProps, { signUp })(connectedSignUp);
+export default connect<StateProps, DispatchProps>(mapStateToProps, { signIn })(connectedSignUp);
