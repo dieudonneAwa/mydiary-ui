@@ -3,7 +3,7 @@ import * as React from 'react';
 import Cookie from 'js-cookie';
 import { BrowserRouter, Link } from 'react-router-dom';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
-import { StyledSignUp, AuthLayout } from '../styles';
+import { StyledSignUp, AuthLayout, Loader } from '../styles';
 import { connect } from 'react-redux';
 import { signIn } from '../../../actions/auth';
 import { User } from '../../../actions/interfaces';
@@ -11,6 +11,7 @@ import { User } from '../../../actions/interfaces';
 interface StateProps {
   user: User;
   authError: string;
+  isLoading: boolean;
 }
 interface DispatchProps {
   signIn: (user: User) => Function;
@@ -67,7 +68,10 @@ export class SignIn extends React.Component<InjectedFormProps<User, IProps> & IP
               <Field type="email" name="email" component={this.renderInput} placeholder="Enter Email Address" />
               <Field type="password" name="password" component={this.renderInput} placeholder="Enter Password" />
               {this.props.authError && <div className="errors">{this.props.authError}</div>}
-              <input type="submit" value="Sign In" />
+              <button type="submit">
+                {this.props.isLoading && <div className="loader"><Loader width="1.5rem" /></div>}
+                Sign In
+              </button>
             </form>
             <p>New on myDiary? <Link to="/auth/sign_up">Sign Up</Link></p>
           </div>
@@ -91,8 +95,8 @@ const validate = (formValues: User): User => {
   return errors;
 }
 
-const mapStateToProps = ({ auth: { user, authError } }: any): StateProps => ({
-  user, authError,
+const mapStateToProps = ({ auth: { user, authError, isLoading } }: any): StateProps => ({
+  user, authError, isLoading,
 });
 
 const connectedSignUp = reduxForm<{}, IProps>({

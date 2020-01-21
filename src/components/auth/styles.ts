@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const AuthLayout = styled.div`
     background-color: #2F2F2F;
@@ -15,6 +15,28 @@ export const AuthLayout = styled.div`
       color: red; font-size: .8rem;
     }
 `;
+
+const spin = keyframes`
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+`;
+
+export const Loader = styled.div`
+  border: .2em solid rgba(0, 0, 0, 0.1);
+  border-top: 0.2em solid white;
+  border-radius: 50%;
+  width: ${(props: { width: string }): string => props.width};
+  height: ${(props: { width: string }): string => props.width};
+  position: absolute;
+  top: 40%;
+  animation: ${spin} 0.6s linear infinite;
+  align-self: center;
+`;
+
 
 export const StyledSignUp = styled.div`
   .form-wrapper {
@@ -55,15 +77,20 @@ export const StyledSignUp = styled.div`
         outline: none; border: none; padding: 10px;
         background-color: rgba(196, 196, 196, 0.8);
       }
-      input[type="submit"] {
-        width: 100%; padding: 10px;
+      button[type="submit"] {
+        width: 100%; height: 52px; padding: 10px;
         border-radius: 300px;
         outline: none; font-weight: 600;
         font-size: 1.5rem; margin-top: 50px;
         background-color: #181818;
         border: none; color: #fff;
+        position: relative;
+        .loader {
+          display: block;
+          margin: auto;
+        }
       }
-      input[type="submit"]:hover {
+      button[type="submit"]:hover {
         box-shadow: 0 0 15px rgba(200, 200, 200, 0.5);
       }
     }
