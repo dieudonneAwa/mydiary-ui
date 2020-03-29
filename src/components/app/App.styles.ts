@@ -3,15 +3,18 @@ import styled from 'styled-components';
 export const StyledApp = styled.div`
   margin: 0;
   padding: 0;
+  min-height: 100vh;
   box-sizing: border-box;
   position: relative;
   
+  a {
+    text-decoration: none;
+  }
   .logo {
-      position: absolute;
       width: 206px;
       height: 54px;
-      left: 30px;
-      top: 20px;
+      padding-left: 30px;
+      padding-top: 20px;
       font-family: Lucida Calligraphy;
       font-style: italic;
       font-weight: normal;

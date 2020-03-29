@@ -17,7 +17,7 @@ interface DispatchProps {
   signUp: (user: User) => Function;
 }
 interface FormProps {
-  handleSubmit: (onSubmit: (formValues: User) => void) => React.FormEventHandler;
+  handleSubmit?: (onSubmit: (formValues: User) => void) => React.FormEventHandler;
 }
 type IProps = StateProps & DispatchProps & FormProps;
 

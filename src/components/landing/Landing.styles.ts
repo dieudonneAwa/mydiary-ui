@@ -4,46 +4,22 @@ import styled from 'styled-components';
 import image from './diary-pic.jpg';
 
 export const LandingComp = styled.div`
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  height: 100vh;
+  width: 100vw;
   background: url(${image}) no-repeat fixed center;
   background-size: cover;
   
   .container {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-content: center;
-    justify-content: center;
     background-color: rgba(005, 005, 005, .7);
-    
-    .auth-btn {
-      background: transparent;
-      font-size: 22px;
-      color: #fff;
-      padding: 7px;
-      border: 1px solid #FFD7D7;
-      border-radius: 10px;
-    }
-    .signUp-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-    .signUp-btn:hover {
-      background: #31393C;
-    }
-    .signIn-btn {
-      position: absolute;
-      top: 20px;
-      right: 125px;
-    }
 
-    .quote {
+    .welcome {
+      display: flex;
+      align-content: center;
+      justify-content: center;
+
+      .quote {
       width: 600px;
       height: 200px;
       margin-top: 25vh;
@@ -72,6 +48,30 @@ export const LandingComp = styled.div`
     .start:hover {
       border: none;
       cursor: pointer;
+    }
+    }
+    
+    .auth-btn {
+      background: transparent;
+      font-size: 22px;
+      color: #fff;
+      padding: 7px;
+      border: 1px solid #FFD7D7;
+      border-radius: 10px;
+    }
+    .signUp-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .signUp-btn:hover {
+      background: #31393C;
+    }
+    .signIn-btn {
+      position: absolute;
+      top: 20px;
+      right: 125px;
     }
   }
 `;

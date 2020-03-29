@@ -1,1 +1,1 @@
-export const baseUrl = 'https://mydiary-staging.herokuapp.com/api/v1';
+export const baseUrl = 'http://localhost:1000/api/v1';

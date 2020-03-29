@@ -2,15 +2,11 @@ import styled, { keyframes } from 'styled-components';
 
 export const AuthLayout = styled.div`
     background-color: #2F2F2F;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow-y: scroll;
     margin: 0; padding: 0;
-    position: fixed;
-    bottom: 0; top: 0; left: 0; right: 0;
-    display: flex;
-    align-content: center;
-    justify-content: center;
+    display: block;
     .errors {
       color: red; font-size: .8rem;
     }
@@ -46,6 +42,7 @@ export const StyledSignUp = styled.div`
     margin-top: 140px;
     border-radius: 10px;
     border: .45px solid #FFD7D7;
+    margin: 140px 30%;
 
     h3 {
       margin-top: 15px; color: #fff;

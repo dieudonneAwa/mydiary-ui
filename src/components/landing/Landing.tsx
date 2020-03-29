@@ -18,10 +18,12 @@ const Landing = () => {
             <button className="auth-btn signIn-btn">Sign In</button>
           </Link>
         </BrowserRouter>
-        <div className="quote">
-          “I can shake off everything as I write, my sorrows disappear, my courage is reborn.”
+        <div className="welcome">
+          <div className="quote">
+            “I can shake off everything as I write, my sorrows disappear, my courage is reborn.”
         </div>
-        <button className="start">Start Writing</button>
+          <button className="start">Start Writing</button>
+        </div>
       </div>
     </LandingComp>
   )

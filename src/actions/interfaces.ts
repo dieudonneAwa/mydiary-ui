@@ -9,7 +9,8 @@ export interface User {
 export interface Diary {
   id?: number;
   title: string;
-  location: string;
+  location?: string;
+  description: string;
 }
 
 export interface Action {

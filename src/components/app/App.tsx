@@ -5,6 +5,7 @@ import Landing from '../landing/Landing';
 import SignUp from '../auth/signUp/SignUp';
 import SignIn from '../auth/signIn/SignIn';
 import { StyledApp } from './App.styles';
+import Profile from '../profile/Profile';
 
 export const App = (): JSX.Element => {
   return (
@@ -13,12 +14,13 @@ export const App = (): JSX.Element => {
         <Route exact path="/">
           <Landing />
         </Route>
+        <Route path="/home">
+          <Profile />
+        </Route>
         <Route path="/auth/sign_up">
-          // @ts-ignore
           <SignUp />
         </Route>
         <Route path="/auth/sign_in">
-          // @ts-ignore
           <SignIn />
         </Route>
       </BrowserRouter>

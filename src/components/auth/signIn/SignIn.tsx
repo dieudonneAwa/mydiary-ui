@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import Cookie from 'js-cookie';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter, Link, Redirect } from 'react-router-dom';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 import { StyledSignUp, AuthLayout, Loader } from '../styles';
 import { connect } from 'react-redux';
@@ -16,8 +16,8 @@ interface StateProps {
 interface DispatchProps {
   signIn: (user: User) => Function;
 }
-interface FormProps {
-  handleSubmit: (onSubmit: (formValues: User) => void) => React.FormEventHandler;
+export interface FormProps {
+  handleSubmit?: (onSubmit: (formValues: User) => void) => React.FormEventHandler;
 }
 type IProps = StateProps & DispatchProps & FormProps;
 
@@ -48,9 +48,9 @@ export class SignIn extends React.Component<InjectedFormProps<User, IProps> & IP
         if (res) {
           const { token } = res.data.data.user;
           Cookie.set('token', token, { expires: 7 });
+          return <Redirect to="/" />
         }
       });
-
   }
 
   render() {
